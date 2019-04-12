@@ -40,9 +40,11 @@ bot.on('message', async message => {
   if(commandfile) commandfile.run(bot,message,args)
 
   if(cmd === `${prefix}ping`){
-    return message.channel.send("Pong!");
+    return message.channel.send(`Pong! **${bot.ping}ms**`);
   }
 
 });
+
+bot.on('error', console.error);
 
 bot.login(config.token);
